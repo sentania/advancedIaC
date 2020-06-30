@@ -30,9 +30,9 @@ resource "vra_blueprint" "this" {
           image: CentOS7
           flavor: Small
           networks:
-            - network: "${resource.Cloud_NSX_Network_1.id}"
+            - network: \"${resource.Cloud_NSX_Network_1.id}"
               securityGroups:
-                - "${resource.Cloud_SecurityGroup_1.id}"
+                - \"${resource.Cloud_SecurityGroup_1.id}"
           customizationSpec: custSpec-CentOS7
           tags:
             - key: protection
