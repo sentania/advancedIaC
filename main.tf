@@ -8,7 +8,7 @@ data "vra_project" "this" {
   name = var.project_name
 }
 
-resource "vra_blueprint" "this" {
+resource "vra_blueprint" "BP" {
   name        = var.blueprint_name
   description = "Created by vRA terraform provider"
 
@@ -39,12 +39,13 @@ resource "vra_blueprint" "this" {
 
   EOT
 }
+
 resource "vra_deployment" "this" {
   name        = var.deployment_name
   description = "Simple IaC Demo"
 
-  blueprint_id      = vra_blueprint.blueprint_id
-  blueprint_version = vra_blueprint.blueprint_version
+  blueprint_id      = vra_blueprint.BP.blueprint_id
+  blueprint_version = vra_blueprint.BP.blueprint_version
   project_id        = data.vra_project.this.id
 
   expand_resources    = true
