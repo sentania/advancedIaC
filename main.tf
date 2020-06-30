@@ -22,7 +22,7 @@ resource "vra_blueprint" "this" {
         type: Cloud.SecurityGroup
         properties:
           constraints:
-            - tag: 'sg:RiskyBusiness'
+            - tag: "sg:RiskyBusiness"
           securityGroupType: existing
       Cloud_Machine_1:
         type: Cloud.Machine
@@ -30,9 +30,9 @@ resource "vra_blueprint" "this" {
           image: CentOS7
           flavor: Small
           networks:
-            - network: '${resource.Cloud_NSX_Network_1.id}'
+            - network: "${resource.Cloud_NSX_Network_1.id}"
               securityGroups:
-                - '${resource.Cloud_SecurityGroup_1.id}'
+                - "${resource.Cloud_SecurityGroup_1.id}"
           customizationSpec: custSpec-CentOS7
           tags:
             - key: protection
@@ -44,6 +44,6 @@ resource "vra_blueprint" "this" {
         properties:
           networkType: routed
           constraints:
-            - tag: 'dynamicNetwork:Routed'
+            - tag: "dynamicNetwork:Routed"
   EOT
 }
