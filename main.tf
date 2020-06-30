@@ -4,7 +4,7 @@ provider "vra" {
   insecure      = var.insecure
 }
 
-resource "vra_project" "this" {
+data "vra_project" "this" {
   name = var.project_name
 }
 
@@ -12,7 +12,7 @@ resource "vra_blueprint" "this" {
   name        = var.blueprint_name
   description = "Created by vRA terraform provider"
 
-  project_id = vra_project.this.id
+  project_id = data.vra_project.this.id
 
   content = <<-EOT
     formatVersion: 1
