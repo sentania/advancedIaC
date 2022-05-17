@@ -27,7 +27,7 @@ resource "vra_blueprint" "this" {
       Cloud_Machine_1:
         type: Cloud.Machine
         properties:
-          image: CentOS7
+          image: CentOS8
           flavor: Small
           networks:
             - network: "$${resource.Cloud_NSX_Network_1.id}"
