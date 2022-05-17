@@ -1,4 +1,4 @@
-variable "url" {
+variable "vra_url" {
 }
 
 variable "refresh_token" {
